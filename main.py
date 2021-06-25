@@ -90,9 +90,21 @@ def experience():
     skills()
 
 def skills():
-    document.add_heading('Skills and languages')
-        
+    document.add_heading('Skills')
     
+    skill = input('Skill name > ')
+    p = document.add_paragraph(skill)
+    p.style = 'List Bullet'
+    
+    while True:
+        more_skills = input('Do you have more skills? Yes or No > ')
+        if more_skills.casefold() == 'yes':
+            skill = input('Skill name > ')
+            p = document.add_paragraph(skill)
+            p.style = 'List Bullet'
+        else:
+            break
+          
 
 def save():
     document.save('cv.docx')
